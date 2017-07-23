@@ -162,7 +162,7 @@ barrage.prototype.load = function (bullets) {
 barrage.prototype.pause = function (bullets) {
     clearInterval(this.fireTimer);
     this.tweenPool.forEach(function (element) {
-        element.step.play();
+        element.step.stop();
     });
     this.isRunning = false;
     console.info('暂定弹幕滚动');
@@ -170,7 +170,7 @@ barrage.prototype.pause = function (bullets) {
 
 barrage.prototype.resume = function (bullets) {
     this.tweenPool.forEach(function (element) {
-        element.step.pause();
+        element.step.start();
     });
     this.start();
     console.info('恢复弹幕滚动');
